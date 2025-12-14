@@ -22,32 +22,57 @@ Here is an overview of how hyperparameters are adjusted :
 4. You evaluate model performance.
 5. You often tune hyperparameters to find the best learning strategy
 
+## `from sklearn.model_selection import GridSearchCV`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+If we don't tune hyperparameters properly, we can get a terrible model. But 
+how do we find the right ones? Trying all combinations is too slow, and manually, we might make 
+errors. Therefore, we need an automatic tool for this task,which is where `gridsearch` becomes practical.
 Gridsearch in a machine learnig tool which applies computations to find the best hyperparameters and tune the model in best possible way.
+## GriedsearchCV components 
+
+1. **Estimator** : The model that we want to tune
+2. **parameter** : This is the heart of gridsearch. A list of parameters and their values.
+3. **Scoring metric** : The score by which the accuracy is measured.
+4. **cross-validation** : The methode that gridsearch uses to train and validate the data and prevents overfitting.
+
+## Gridsearch implementation
+First we import `gridsearchcv` , your estimator , and acoring metric
+```python
+from sklearn.model_selection import GridSearchCV
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+```
+In order to implement the gridsearch we have to first define our estimator and based on that we define parameters and their values.
+```python
+estimator = DecisionTreeClassifier()
+params_grid={
+    'criterion' : ['gini','entropy'],
+    'max_depth':[1,2,3,4],
+    'min_samples_split' : [2,5,10,15],
+    'min_samples_leaf':[10,15,20,25]
+}
+```
+Now we prepare the data and define feature / target
+```python
+from sklearn.datasets import load_iris
+data = load_iris()
+X = data.data
+Y = data.target
+```
+
+split the data
+```python
+from sklearn.model_selection import train_test_split
+X_train,X_test,Y_train,Y_test = train_test_split(X , Y , test_size= 0.2 , random_state=38)
+```
+
+Now we create the gridsearchcv
+```python
+gridsearch = GridSearchCV (estimator,param_grid=params_grid,  scoring='accuracy')
+gridsearch.fit(X_train,Y_train)
+```
+
+
+
+
+
