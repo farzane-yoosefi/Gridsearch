@@ -89,7 +89,7 @@ gridsearch = GridSearchCV (estimator=estimator,param_grid=params_grid,  scoring=
 # Now fit the gridsearch on the training set
 gridsearch.fit(X_train,Y_train)
 ```
-Also this the cros validation result coming from gridsearch,just showing the GridSearchCV configuration.
+Also this the cross-validation result coming from gridsearch,just showing the GridSearchCV configuration.
 
 <p align="center"><img src="https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch1.PNG" alt="cross-validatiom table" width="300" /></p>
 <p align="center"><img src="https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch2.JPG" alt="gridsearch parameters" width="500" /></p>
