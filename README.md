@@ -89,9 +89,10 @@ gridsearch = GridSearchCV (estimator=estimator,param_grid=params_grid,  scoring=
 # Now fit the gridsearch on the training set
 gridsearch.fit(X_train,Y_train)
 ```
-Output is a table which is the **cross-validation results** printed by GridsearchCV.It shows the performance for each hyperparameter combination
+Output is a table which is the **cross-validation results** printed by GridsearchCV.It shows the performance for each hyperparameter combination.
 
 
+![cross-validatiom table](https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch1.PNG)
 
 
 
