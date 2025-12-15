@@ -66,11 +66,30 @@ from sklearn.model_selection import train_test_split
 X_train,X_test,Y_train,Y_test = train_test_split(X , Y , test_size= 0.2 , random_state=38)
 ```
 
-Now we create the gridsearchcv
+Now we create the GidsearchCV
+>> Gridsearch fits only on the training data.
+### When we fit the gridsearch on training data :
+1. The training set devides into 5 folds (Number of folds can vary)
+    **For each combination:**
+    - The model is trained on 4 folds
+    - And validated on one fold 
+2. The first combination of hyperparameters is selected
+3. it is trained and validated on every fold(Each fold becomes the validation set once)
+4. The average validation score is stored
+5. The moves to the next combination
+6. After trying all possible combinations ,the best hyperparameters are given.
+7. By default, after finding the best hyperparameters via cross-validation, the final model is retrained once on all training set
+
+
+Now let's create our `GridsearchCV` and fit the objects.
 ```python
-gridsearch = GridSearchCV (estimator,param_grid=params_grid,  scoring='accuracy')
+# Objects are already  created above
+gridsearch = GridSearchCV (estimator=estimator,param_grid=params_grid,  scoring='accuracy',n_jobs= -1 , cv=5)
+
+# Now fit the gridsearch on the training set
 gridsearch.fit(X_train,Y_train)
 ```
+Output is a table which is the **cross-validation results** printed by GridsearchCV.It shows the performance for each hyperparameter combination
 
 
 
