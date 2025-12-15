@@ -94,5 +94,8 @@ Output is a table which is the **cross-validation results** printed by Gridsearc
 
 ![cross-validatiom table](https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch1.PNG)
 
+![gridsearch parameters](https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch2.JPG)
+
+![]()
 
 
