@@ -96,4 +96,20 @@ This is how the output table can be.
 <p align="center"><img src="https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch3.JPG" alt="best paraneters" width="300" /></p>
 <p align="center"><img src="https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch4.JPG" alt="estimator parameters" width="300" /></p>
 
+### ` .best_estimator_ ` is used to access the best hyperparameters
+```python
+best_model = gridsearch.best_estimator_
+```
+OUrput : 
+<p align="center"><img src="https://github.com/farzane-yoosefi/Gridsearch/blob/main/gridsearch4.JPG" alt="estimator parameters" width="300" /></p>
+
+### validating the model
+`.score` calculates the defualt evaluation on the given data.
+```python
+accuracy = best_model.score(X_test,Y_test)
+```
+output:
+```
+0.9666666666666667
+```
 
